@@ -54,3 +54,13 @@ window.onload = function () {
     }
 
 }
+function clearRoadmap() {
+
+    document.getElementById("goalInput").value = "";
+
+    document.getElementById("result").innerHTML = "";
+
+    localStorage.removeItem("goal");
+    localStorage.removeItem("roadmap");
+
+}
