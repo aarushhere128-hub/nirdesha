@@ -37,4 +37,20 @@ function generateRoadmap() {
             <li>Achieve your goal</li>
         </ul>
     `;
+    localStorage.setItem("goal", goal);
+localStorage.setItem("roadmap", result.innerHTML);
+}
+window.onload = function () {
+
+    let savedRoadmap = localStorage.getItem("roadmap");
+
+    if (savedRoadmap) {
+
+        document.getElementById("result").innerHTML = savedRoadmap;
+
+        document.getElementById("goalInput").value =
+            localStorage.getItem("goal");
+
+    }
+
 }
