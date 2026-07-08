@@ -3,11 +3,11 @@ import {
     googleProvider,
     signInWithPopup,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    updateProfile
 } from "./firebase.js";
 
 let signUpMode = false;
-const displayName = document.getElementById("displayName");
 const signupFields = document.getElementById("signupFields");
 const confirmContainer = document.getElementById("confirmPasswordContainer");
 
@@ -130,6 +130,15 @@ authButton.addEventListener("click", async () => {
                 email,
                 password
             );
+            const displayName =
+document.getElementById("displayName").value;
+
+await updateProfile(
+    userCredential.user,
+    {
+        displayName: displayName
+    }
+);
 
             message.style.color = "green";
             message.textContent =
