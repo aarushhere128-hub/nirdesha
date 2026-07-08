@@ -1,7 +1,9 @@
 import {
     auth,
     googleProvider,
-    signInWithPopup
+    signInWithPopup,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
 } from "./firebase.js";
 
 let signUpMode = false;
@@ -92,6 +94,73 @@ googleBtn.addEventListener("click", async () => {
         message.style.color = "red";
         message.textContent =
             error.message;
+
+        console.error(error);
+
+    }
+
+});
+authButton.addEventListener("click", async () => {
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    message.style.color = "red";
+
+    try {
+
+        if (signUpMode) {
+
+            const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+
+                message.textContent =
+                "Passwords do not match.";
+
+                return;
+            }
+
+
+            const userCredential =
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            message.style.color = "green";
+            message.textContent =
+            "Account created!";
+
+            console.log(userCredential.user);
+
+        }
+
+        else {
+
+            const userCredential =
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            message.style.color = "green";
+            message.textContent =
+            "Welcome back!";
+
+            console.log(userCredential.user);
+
+        }
+
+    }
+
+    catch(error){
+
+        message.textContent =
+        error.message;
 
         console.error(error);
 
