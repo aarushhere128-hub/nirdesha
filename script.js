@@ -1,3 +1,4 @@
+import { db } from "./firebase.js";
 function generateRoadmap() {
 
     let goal = document.getElementById("goalInput").value;
