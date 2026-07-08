@@ -1,5 +1,10 @@
-let signUpMode = false;
+import {
+    auth,
+    googleProvider,
+    signInWithPopup
+} from "./firebase.js";
 
+let signUpMode = false;
 const displayName = document.getElementById("displayName");
 const signupFields = document.getElementById("signupFields");
 const confirmContainer = document.getElementById("confirmPasswordContainer");
@@ -61,3 +66,35 @@ toggleMode.addEventListener("click", function (e) {
 });
 
 updateUI();
+const googleBtn = document.getElementById("googleBtn");
+
+googleBtn.addEventListener("click", async () => {
+
+    try {
+
+        const result = await signInWithPopup(
+            auth,
+            googleProvider
+        );
+
+        const user = result.user;
+
+        message.style.color = "green";
+        message.textContent =
+            "Welcome, " + user.displayName;
+
+        console.log("Logged in:", user);
+
+    }
+
+    catch(error){
+
+        message.style.color = "red";
+        message.textContent =
+            error.message;
+
+        console.error(error);
+
+    }
+
+});
