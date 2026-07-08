@@ -13,7 +13,8 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
 
         welcome.textContent =
-        "Welcome, " + user.displayName;
+        welcome.textContent =
+"Welcome, " + (user.displayName || user.email);
 
 
     } 
