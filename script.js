@@ -65,3 +65,5 @@ function clearRoadmap() {
     localStorage.removeItem("roadmap");
 
 }
+window.generateRoadmap = generateRoadmap;
+window.clearRoadmap = clearRoadmap;
