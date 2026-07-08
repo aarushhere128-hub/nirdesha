@@ -6,7 +6,8 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signInWithPopup
+  signInWithPopup,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 import {
   getFirestore,
@@ -38,5 +39,6 @@ export {
     googleProvider,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    signInWithPopup
+    signInWithPopup,
+    updateProfile
 };
