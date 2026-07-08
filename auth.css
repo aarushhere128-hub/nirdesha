@@ -87,4 +87,86 @@ button{
 
     background:white;
 
-    border:2px solid #2e
+    border:2px solid #2e7d32;
+
+    color:#2e7d32;
+
+    margin-bottom:18px;
+}
+
+.google-btn:hover{
+
+    background:#e8f5e9;
+}
+
+#authButton{
+
+    background:#2e7d32;
+
+    color:white;
+
+    margin-top:12px;
+}
+
+#authButton:hover{
+
+    background:#1b5e20;
+}
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    margin:20px 0;
+
+    color:#888;
+}
+
+.divider::before,
+.divider::after{
+
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:#ddd;
+}
+
+.divider span{
+
+    margin:0 12px;
+}
+
+.toggle-text{
+
+    margin-top:22px;
+
+    font-size:15px;
+}
+
+.toggle-text a{
+
+    color:#2e7d32;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.toggle-text a:hover{
+
+    text-decoration:underline;
+}
+
+#message{
+
+    color:red;
+
+    min-height:20px;
+
+    margin-top:10px;
+}
