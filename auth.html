@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirdesha | Authentication</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <h1>Nirdesha</h1>
+        <p class="subtitle">Every goal deserves a roadmap.</p>
+
+        <button id="googleBtn" class="google-btn">
+            Continue with Google
+        </button>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <div id="signupFields" style="display:none;">
+            <input
+                type="text"
+                id="displayName"
+                placeholder="Display Name">
+        </div>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Email">
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password">
+
+        <div id="confirmPasswordContainer" style="display:none;">
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm Password">
+        </div>
+
+        <button id="authButton">
+            Sign In
+        </button>
+
+        <p id="message"></p>
+
+        <p class="toggle-text">
+            <span id="toggleQuestion">
+                Don't have an account?
+            </span>
+
+            <a href="#" id="toggleMode">
+                Sign Up
+            </a>
+        </p>
+
+    </div>
+
+    <script type="module" src="auth.js"></script>
+
+</body>
+
+</html>
