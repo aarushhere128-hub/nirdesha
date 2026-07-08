@@ -1,5 +1,5 @@
-import { db } from "./firebase.js";
-function generateRoadmap() {
+import { db, collection, addDoc } from "./firebase.js";
+async function generateRoadmap() {
 
     let goal = document.getElementById("goalInput").value;
 
@@ -40,6 +40,21 @@ function generateRoadmap() {
     `;
     localStorage.setItem("goal", goal);
 localStorage.setItem("roadmap", result.innerHTML);
+
+try {
+    await addDoc(collection(db, "roadmaps"), {
+        goal: goal,
+        roadmap: result.innerHTML,
+        createdAt: new Date()
+    });
+
+    console.log("Roadmap saved to Firestore!");
+
+} catch (error) {
+
+    console.error("Error saving roadmap:", error);
+
+}
 }
 window.onload = function () {
 
