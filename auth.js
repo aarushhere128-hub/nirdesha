@@ -88,7 +88,7 @@ googleBtn.addEventListener("click", async () => {
         message.style.color = "green";
         message.textContent =
             "Welcome, " + user.displayName;
-        window.location.href = "dashboard.html";
+        window.location.href = "index.html";
 
         console.log("Logged in:", user);
 
@@ -155,7 +155,7 @@ await setDoc(
             message.style.color = "green";
             message.textContent =
             "Account created!";
-            window.location.href = "dashboard.html";
+            window.location.href = "index.html";
 
             console.log(userCredential.user);
 
@@ -173,7 +173,7 @@ await setDoc(
             message.style.color = "green";
             message.textContent =
             "Welcome back!";
-window.location.href = "dashboard.html";
+window.location.href = "index.html";
             console.log(userCredential.user);
 
         }
