@@ -1,5 +1,9 @@
 import {
     auth,
+    db,
+    doc,
+    setDoc,
+    serverTimestamp,
     googleProvider,
     signInWithPopup,
     createUserWithEmailAndPassword,
@@ -139,7 +143,15 @@ await updateProfile(
         displayName: displayName
     }
 );
-
+await setDoc(
+    doc(db, "users", userCredential.user.uid),
+    {
+        displayName: displayName,
+        email: email,
+        createdAt: serverTimestamp(),
+        roadmapCount: 0
+    }
+);
             message.style.color = "green";
             message.textContent =
             "Account created!";
