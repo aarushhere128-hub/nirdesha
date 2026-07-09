@@ -6,6 +6,15 @@ from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 const welcome = document.getElementById("welcome");
 const logoutBtn = document.getElementById("logoutBtn");
 
+const createRoadmapBtn =
+document.getElementById("createRoadmapBtn");
+
+createRoadmapBtn.addEventListener("click", () => {
+
+    window.location.href = "create-roadmap.html";
+
+});
+
 
 onAuthStateChanged(auth, (user) => {
 
