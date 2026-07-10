@@ -1,3 +1,8 @@
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({
+    apiKey: "AQ.Ab8RN6JervMMloeNyK67amdslhDFJGTBAxP93vcuLuk1Pq4GOA"
+});
 import { db, collection, addDoc } from "./firebase.js";
 async function generateRoadmap() {
 
@@ -11,33 +16,21 @@ async function generateRoadmap() {
     }
 
 
-    result.innerHTML = `
-        <h2>Your Roadmap</h2>
+    result.innerHTML = "<p>Generating roadmap...</p>";
 
-        <h3>🎯 Goal:</h3>
-        <p>${goal}</p>
+const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: `Create a roadmap for this goal:
 
-        <h3>🪜 Phase 1: Foundation</h3>
-        <ul>
-            <li>Understand the basics</li>
-            <li>Learn essential concepts</li>
-            <li>Create a learning routine</li>
-        </ul>
+${goal}
 
-        <h3>🚀 Phase 2: Growth</h3>
-        <ul>
-            <li>Practice consistently</li>
-            <li>Work on projects</li>
-            <li>Track your improvement</li>
-        </ul>
+Return the roadmap in Markdown with headings and bullet points.`
+});
 
-        <h3>🏆 Phase 3: Mastery</h3>
-        <ul>
-            <li>Challenge yourself</li>
-            <li>Build advanced skills</li>
-            <li>Achieve your goal</li>
-        </ul>
-    `;
+result.innerHTML = `
+<h2>Your AI Roadmap</h2>
+<pre>${response.text}</pre>
+`;
     localStorage.setItem("goal", goal);
 localStorage.setItem("roadmap", result.innerHTML);
 
