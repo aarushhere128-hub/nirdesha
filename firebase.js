@@ -11,10 +11,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 import {
     getFirestore,
+    collection,
+    addDoc,
     doc,
     setDoc,
     serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";  // TODO: Add SDKs for Firebase products that you want to use
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";// TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
@@ -34,6 +36,8 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 export {
     db,
+    collection,
+    addDoc,
     doc,
     setDoc,
     serverTimestamp,
