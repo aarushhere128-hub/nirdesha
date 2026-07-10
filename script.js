@@ -21,14 +21,34 @@ async function generateRoadmap() {
     result.innerHTML = "<p>Generating roadmap...</p>";
     alert("Generating...");
 
-const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-    contents: `Create a roadmap for this goal:
+try {
+
+    const response = await ai.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: `Create a roadmap for this goal:
 
 ${goal}
 
 Return the roadmap in Markdown with headings and bullet points.`
-});
+    });
+
+    alert("Response received!");
+
+    result.innerHTML = `
+        <h2>Your AI Roadmap</h2>
+        <pre>${response.text}</pre>
+    `;
+
+} catch (error) {
+
+    console.error(error);
+
+    alert(
+        "Error:\n" +
+        (error.message || JSON.stringify(error))
+    );
+
+}
 
 result.innerHTML = `
 <h2>Your AI Roadmap</h2>
