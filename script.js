@@ -1,8 +1,10 @@
+alert("script loaded");
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
     apiKey: "AQ.Ab8RN6JervMMloeNyK67amdslhDFJGTBAxP93vcuLuk1Pq4GOA"
 });
+alert("Gemini initialized");
 import { db, collection, addDoc } from "./firebase.js";
 async function generateRoadmap() {
 
@@ -17,6 +19,7 @@ async function generateRoadmap() {
 
 
     result.innerHTML = "<p>Generating roadmap...</p>";
+    alert("Generating...");
 
 const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
@@ -31,6 +34,7 @@ result.innerHTML = `
 <h2>Your AI Roadmap</h2>
 <pre>${response.text}</pre>
 `;
+    alert("Response received");
     localStorage.setItem("goal", goal);
 localStorage.setItem("roadmap", result.innerHTML);
 
